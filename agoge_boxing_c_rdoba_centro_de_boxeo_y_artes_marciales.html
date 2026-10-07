@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agoge Boxing Córdoba | Centro de Boxeo y Deportes de Contacto</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        agoge: {
+                            red: '#DC2626',
+                            darkred: '#991B1B',
+                            gold: '#D97706',
+                            bg: '#0F172A',
+                            card: '#1E293B',
+                            muted: '#334155'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0F17;
+            color: #F8FAFC;
+        }
+        .font-display {
+            font-family: 'Oswald', sans-serif;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #EF4444 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-radial-gradient {
+            background: radial-gradient(circle at 50% 20%, rgba(220, 38, 38, 0.18) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #DC2626;
+        }
+    </style>
+</head>
+<body class="bg-[#0B0F17] text-slate-100 antialiased selection:bg-red-600 selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-md">
+        <span class="inline-block animate-pulse mr-2">🔥</span> 
+        <strong>¡1ª Clase de Prueba GRATIS en Agoge Córdoba!</strong> Reserva tu sitio en Arroyo del Moro y empieza hoy.
+        <button onclick="openBookingModal('General')" class="ml-3 underline hover:text-slate-200 font-semibold cursor-pointer">Solicitar Ahora →</button>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <nav class="sticky top-0 z-40 backdrop-blur-md bg-[#0B0F17]/90 border-b border-slate-800 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-xl flex items-center justify-center text-white shadow-lg shadow-red-600/30 group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-[#000] fa-hand-fist text-2xl text-amber-400"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black font-display tracking-wider block leading-none text-white">AGOGE <span class="text-red-500">BOXING</span></span>
+                        <span class="text-xs text-amber-400 tracking-widest uppercase font-semibold">Córdoba • Arroyo del Moro</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#disciplinas" class="hover:text-red-500 transition-colors">Disciplinas</a>
+                    <a href="#horarios" class="hover:text-red-500 transition-colors">Horarios</a>
+                    <a href="#tarifas" class="hover:text-red-500 transition-colors">Tarifas</a>
+                    <a href="#timer" class="hover:text-red-500 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-stopwatch text-red-500"></i> Timer Boxeo</a>
+                    <a href="#calculadora" class="hover:text-red-500 transition-colors">Calculadora</a>
+                    <a href="#instalaciones" class="hover:text-red-500 transition-colors">Gimnasio</a>
+                    <a href="#contacto" class="hover:text-red-500 transition-colors">Ubicación</a>
+                </div>
+
+                <!-- Call to action button -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="tel:+34672556301" class="text-slate-300 hover:text-white p-2 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-red-500"></i> 672 55 63 01
+                    </a>
+                    <button onclick="openBookingModal('General')" class="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold py-2.5 px-5 rounded-xl shadow-lg shadow-red-600/25 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 text-sm">
+                        Clase Gratis <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b border-slate-800 bg-slate-900/95 backdrop-blur-lg px-4 pt-3 pb-6 space-y-3">
+            <a href="#disciplinas" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-red-400">Disciplinas</a>
+            <a href="#horarios" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-red-400">Horarios Clases</a>
+            <a href="#tarifas" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-red-400">Tarifas y Cuotas</a>
+            <a href="#timer" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-red-400">Cronómetro Boxing</a>
+            <a href="#calculadora" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-red-400">Calculadora de Calorías</a>
+            <a href="#instalaciones" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-red-400">Instalaciones</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-red-400">Ubicación y Contacto</a>
+            <div class="pt-4 flex flex-col gap-2">
+                <button onclick="openBookingModal('General'); toggleMobileMenu()" class="w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 rounded-xl text-center shadow-lg">
+                    ¡Probar 1 Día Gratis!
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-8 pb-16 bg-radial-gradient">
+        <!-- Decorative grid background -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <!-- Status Badge -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs text-amber-400 font-semibold backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 -ml-4"></span>
+                        <span>Abierto de Lunes a Viernes • 07:00 - 22:00</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black font-display tracking-tight leading-[1.05] uppercase">
+                        FORJA TU MEJOR <span class="text-gradient">VERSIÓN EN EL RING</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-lg sm:text-xl max-w-2xl font-normal leading-relaxed mx-auto lg:mx-0">
+                        En <strong class="text-white font-semibold">Agoge Boxing Córdoba</strong> combinamos la disciplina clásica del boxeo, deportes de contacto y preparación física funcional para todos los niveles. Desde iniciación recreativa hasta competición.
+                    </p>
+
+                    <!-- Features bullets -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-left max-w-lg mx-auto lg:mx-0">
+                        <div class="flex items-center gap-2 text-sm text-slate-300">
+                            <i class="fa-solid fa-circle-check text-red-500"></i>
+                            <span>Entrenadores Titulados</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-slate-300">
+                            <i class="fa-solid fa-circle-check text-red-500"></i>
+                            <span>Ring de Competición</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-slate-300">
+                            <i class="fa-solid fa-circle-check text-red-500"></i>
+                            <span>Ambiente Motivador</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-slate-300">
+                            <i class="fa-solid fa-circle-check text-red-500"></i>
+                            <span>Sacos & Ring Profesional</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-slate-300">
+                            <i class="fa-solid fa-circle-check text-red-500"></i>
+                            <span>Adultos y Junior</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-slate-300">
+                            <i class="fa-solid fa-circle-check text-red-500"></i>
+                            <span>Sin permanencia</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <button onclick="openBookingModal('General')" class="w-full sm:w-auto bg-gradient-to-r from-red-600 via-red-600 to-amber-600 hover:opacity-95 text-white font-extrabold text-lg px-8 py-4 rounded-xl shadow-xl shadow-red-600/30 transform hover:-translate-y-1 transition-all duration-300 text-center">
+                            <i class="fa-solid fa-bolt mr-2"></i> RESERVAR CLASE DE PRUEBA GRATIS
+                        </button>
+                        <a href="#horarios" class="w-full sm:w-auto border border-slate-700 hover:border-slate-500 bg-slate-800/50 hover:bg-slate-800 text-slate-200 font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 text-center backdrop-blur-sm">
+                            Ver Horarios <i class="fa-solid fa-calendar-days ml-2 text-slate-400"></i>
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-amber-400">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="font-bold text-white">4.9 / 5</span>
+                            <span>(50+ reseñas Google)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-red-500"></i>
+                            <span>Av. Arroyo del Moro 22, Córdoba</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Hero Visual Card / Interactive Banner -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Glow effect -->
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-red-600 to-amber-600 opacity-30 blur-xl"></div>
+                        
+                        <div class="relative bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-2xl backdrop-blur-xl">
+                            <div class="relative h-64 sm:h-72 rounded-2xl overflow-hidden bg-slate-800 mb-6 flex items-center justify-center group">
+                                <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=800&q=80" onerror="this.src='https://placehold.co/800x500/1e293b/ef4444?text=Agoge+Boxing+Cordoba'" alt="Gimnasio Agoge Boxeo Córdoba" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                                    <div>
+                                        <span class="bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wide">Ring & Sacos</span>
+                                        <h3 class="text-xl font-bold font-display text-white mt-1">Sala Arroyo del Moro</h3>
+                                    </div>
+                                    <span class="text-xs bg-slate-900/80 text-amber-400 px-3 py-1 rounded-full border border-amber-500/30 font-semibold">
+                                        <i class="fa-solid fa-fire mr-1"></i> +500 M²
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Live Quick Stats -->
+                            <div class="grid grid-cols-3 gap-3 text-center">
+                                <div class="bg-slate-800/70 p-3 rounded-xl border border-slate-700/50">
+                                    <div class="text-2xl font-black font-display text-red-500">+6</div>
+                                    <div class="text-[11px] text-slate-400 font-medium">Disciplinas</div>
+                                </div>
+                                <div class="bg-slate-800/70 p-3 rounded-xl border border-slate-700/50">
+                                    <div class="text-2xl font-black font-display text-amber-400">100%</div>
+                                    <div class="text-[11px] text-slate-400 font-medium">Atención Guiada</div>
+                                </div>
+                                <div class="bg-slate-800/70 p-3 rounded-xl border border-slate-700/50">
+                                    <div class="text-2xl font-black font-display text-emerald-400">7:00</div>
+                                    <div class="text-[11px] text-slate-400 font-medium">Abre Temprano</div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 p-4 rounded-xl bg-red-950/30 border border-red-800/40 flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-red-600/20 flex items-center justify-center text-red-400 shrink-0">
+                                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                                </div>
+                                <p class="text-xs text-slate-300 leading-snug">
+                                    <strong class="text-white">¿Nunca has boxeado?</strong> No te preocupes. El 80% de nuestras incorporaciones empiezan desde cero. Adaptamos el entrenamiento a tu ritmo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCIPLINES SECTION -->
+    <section id="disciplinas" class="py-20 bg-slate-900/60 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-red-500 font-bold uppercase tracking-wider text-xs bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">Especialidades Agoge</span>
+                <h2 class="text-3xl sm:text-5xl font-black font-display mt-3 text-white uppercase">
+                    DISCIPLINAS Y ACTIVIDADES
+                </h2>
+                <p class="text-slate-400 text-base sm:text-lg mt-3">
+                    Encuentra la disciplina que mejor encaja con tus objetivos físicos y mentales en nuestro centro de Córdoba.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Boxeo Recreativo & Técnico -->
+                <div class="bg-slate-800/50 rounded-2xl border border-slate-700/80 overflow-hidden hover:border-red-500/60 transition-all duration-300 group hover:-translate-y-1 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Boxeo+Agoge'" alt="Boxeo en Córdoba" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Estrella Agoge</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-2 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                                <i class="fa-solid fa-hand-fist"></i> Todos los niveles
+                            </div>
+                            <h3 class="text-2xl font-bold font-display text-white mt-1">Boxeo Recreativo y Técnico</h3>
+                            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                                Aprende la técnica pura del noble arte: desplazamiento, combinaciones, esquivas y golpeo al saco y manoplas. Quema hasta 800 kcal por sesión sin necesidad de contacto si no lo deseas.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between">
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-clock mr-1"></i> Sesiones 60 min</span>
+                            <button onclick="openBookingModal('Boxeo Recreativo')" class="text-red-400 hover:text-red-300 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                Reservar <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Kickboxing & K1 -->
+                <div class="bg-slate-800/50 rounded-2xl border border-slate-700/80 overflow-hidden hover:border-red-500/60 transition-all duration-300 group hover:-translate-y-1 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1509563839001-b5420716c359?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Kickboxing'" alt="Kickboxing Córdoba" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-slate-900/80 text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md border border-amber-500/30">Alta Intensidad</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-2 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                                <i class="fa-solid fa-bolt"></i> Potencia y Coordinación
+                            </div>
+                            <h3 class="text-2xl font-bold font-display text-white mt-1">Kickboxing / K1</h3>
+                            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                                Integra patadas, rodillazos y puños con técnica depurada. Incrementa tu flexibilidad, potencia de piernas y acondicionamiento cardiovascular a niveles superiores.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between">
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-clock mr-1"></i> Sesiones 60 min</span>
+                            <button onclick="openBookingModal('Kickboxing')" class="text-red-400 hover:text-red-300 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                Reservar <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Cross Training / Funcional -->
+                <div class="bg-slate-800/50 rounded-2xl border border-slate-700/80 overflow-hidden hover:border-red-500/60 transition-all duration-300 group hover:-translate-y-1 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Cross+Training'" alt="Cross Training Córdoba" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-2 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                                <i class="fa-solid fa-dumbbell"></i> Fuerza & Acondicionamiento
+                            </div>
+                            <h3 class="text-2xl font-bold font-display text-white mt-1">Cross Training Funcional</h3>
+                            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                                Circuitos intensivos con kettlebells, cuerdas de combate, balones medicinales y ejercicios calisténicos diseñados para construir músculo magro y resistencia.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between">
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-clock mr-1"></i> Sesiones 50 min</span>
+                            <button onclick="openBookingModal('Cross Training')" class="text-red-400 hover:text-red-300 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                Reservar <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Krav Maga & Defensa Personal -->
+                <div class="bg-slate-800/50 rounded-2xl border border-slate-700/80 overflow-hidden hover:border-red-500/60 transition-all duration-300 group hover:-translate-y-1 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Defensa+Personal'" alt="Defensa Personal Córdoba" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-2 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                                <i class="fa-solid fa-shield"></i> Seguridad & Reflejos
+                            </div>
+                            <h3 class="text-2xl font-bold font-display text-white mt-1">Defensa Personal / Krav Maga</h3>
+                            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                                Tácticas de defensa realista enfocadas en la resolución rápida de situaciones de riesgo, agilidad mental y control situacional.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between">
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-clock mr-1"></i> Sesiones 60 min</span>
+                            <button onclick="openBookingModal('Defensa Personal')" class="text-red-400 hover:text-red-300 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                Reservar <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Boxeo Infantil y Junior -->
+                <div class="bg-slate-800/50 rounded-2xl border border-slate-700/80 overflow-hidden hover:border-red-500/60 transition-all duration-300 group hover:-translate-y-1 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Boxeo+Infantil'" alt="Boxeo Infantil Córdoba" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-amber-500 text-slate-950 text-xs font-bold px-2.5 py-1 rounded-md">Escuela Agoge Kids</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-2 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                                <i class="fa-solid fa-child"></i> De 6 a 15 años
+                            </div>
+                            <h3 class="text-2xl font-bold font-display text-white mt-1">Boxeo Junior y Valores</h3>
+                            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                                Formación basada en la disciplina, el respeto, el compañerismo y el autocontrol corporal. Una forma excelente de canalizar energía y desarrollar la psicomotricidad.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between">
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-clock mr-1"></i> Sesiones 50 min</span>
+                            <button onclick="openBookingModal('Boxeo Junior')" class="text-red-400 hover:text-red-300 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                Reservar <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Entrenamientos Personales / Competición -->
+                <div class="bg-slate-800/50 rounded-2xl border border-slate-700/80 overflow-hidden hover:border-red-500/60 transition-all duration-300 group hover:-translate-y-1 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Entrenamiento+Personal'" alt="Entrenamiento Personal Boxeo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-2 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                                <i class="fa-solid fa-user-ninja"></i> 1 a 1 / A medida
+                            </div>
+                            <h3 class="text-2xl font-bold font-display text-white mt-1">Personal Training & Competición</h3>
+                            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+                                Sesiones totalmente personalizadas con entrenador dedicado. Preparación física específica, corrección técnica acelerada y estrategia para competidores.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between">
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-clock mr-1"></i> Horarios flexibles</span>
+                            <button onclick="openBookingModal('Entrenamiento Personal')" class="text-red-400 hover:text-red-300 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                Consultar <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SCHEDULE SECTION -->
+    <section id="horarios" class="py-20 bg-[#0B0F17]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-amber-500 font-bold uppercase tracking-wider text-xs bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Planifica tu semana</span>
+                    <h2 class="text-3xl sm:text-5xl font-black font-display text-white mt-3 uppercase">
+                        HORARIO DE CLASES EN AGOGE
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2">
+                        Instalaciones abiertas ininterrumpidamente de 07:00 a 22:00 (Lunes a Viernes).
+                    </p>
+                </div>
+                <!-- Day filter tabs -->
+                <div class="mt-6 md:mt-0 flex flex-wrap gap-2" id="day-tabs">
+                    <button onclick="filterSchedule('todos')" class="schedule-tab active-tab text-xs font-bold px-4 py-2 rounded-xl transition-all border border-red-600 bg-red-600 text-white">Todos</button>
+                    <button onclick="filterSchedule('lunes')" class="schedule-tab text-xs font-bold px-4 py-2 rounded-xl transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-500">Lunes</button>
+                    <button onclick="filterSchedule('martes')" class="schedule-tab text-xs font-bold px-4 py-2 rounded-xl transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-500">Martes</button>
+                    <button onclick="filterSchedule('miercoles')" class="schedule-tab text-xs font-bold px-4 py-2 rounded-xl transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-500">Miércoles</button>
+                    <button onclick="filterSchedule('jueves')" class="schedule-tab text-xs font-bold px-4 py-2 rounded-xl transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-500">Jueves</button>
+                    <button onclick="filterSchedule('viernes')" class="schedule-tab text-xs font-bold px-4 py-2 rounded-xl transition-all border border-slate-700 bg-slate-800 text-slate-300 hover:border-slate-500">Viernes</button>
+                </div>
+            </div>
+
+            <!-- Schedule Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="schedule-cards-container">
+                
+                <!-- Item 1 -->
+                <div class="schedule-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-all" data-day="lunes miercoles viernes">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Mañana • 07:30 - 08:30</span>
+                        <span class="text-xs text-slate-400">Lun - Mié - Vie</span>
+                    </div>
+                    <h4 class="text-xl font-bold font-display text-white">Boxeo "Early Birds"</h4>
+                    <p class="text-slate-400 text-xs mt-1">Comienza la jornada activando metabolismo con técnica y sacos.</p>
+                    <div class="mt-4 flex justify-between items-center text-xs">
+                        <span class="text-slate-500"><i class="fa-solid fa-user-group mr-1"></i> Grupo reducido</span>
+                        <button onclick="openBookingModal('Boxeo Early Birds')" class="text-red-500 hover:underline font-semibold">Reservar ›</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="schedule-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-all" data-day="lunes martes miercoles jueves viernes">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Mañana • 10:00 - 11:30</span>
+                        <span class="text-xs text-slate-400">Lunes a Viernes</span>
+                    </div>
+                    <h4 class="text-xl font-bold font-display text-white">Boxeo General y Técnica</h4>
+                    <p class="text-slate-400 text-xs mt-1">Trabajo de sombras, manoplas, combinación y táctica básica.</p>
+                    <div class="mt-4 flex justify-between items-center text-xs">
+                        <span class="text-slate-500"><i class="fa-solid fa-dumbbell mr-1"></i> Todos niveles</span>
+                        <button onclick="openBookingModal('Boxeo Mañana')" class="text-red-500 hover:underline font-semibold">Reservar ›</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="schedule-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-all" data-day="martes jueves">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-red-500/10 text-red-400 border border-red-500/20">Tarde • 17:30 - 18:30</span>
+                        <span class="text-xs text-slate-400">Mar - Jue</span>
+                    </div>
+                    <h4 class="text-xl font-bold font-display text-white">Boxeo Junior (6 a 15 años)</h4>
+                    <p class="text-slate-400 text-xs mt-1">Desarrollo psicomotriz, disciplina y compañerismo deportivo.</p>
+                    <div class="mt-4 flex justify-between items-center text-xs">
+                        <span class="text-slate-500"><i class="fa-solid fa-child mr-1"></i> Infantil/Cadete</span>
+                        <button onclick="openBookingModal('Boxeo Junior')" class="text-red-500 hover:underline font-semibold">Reservar ›</button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="schedule-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-all" data-day="lunes miercoles viernes">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-red-500/10 text-red-400 border border-red-500/20">Tarde • 18:30 - 19:30</span>
+                        <span class="text-xs text-slate-400">Lun - Mié - Vie</span>
+                    </div>
+                    <h4 class="text-xl font-bold font-display text-white">Boxeo Iniciación & Adultos</h4>
+                    <p class="text-slate-400 text-xs mt-1">Aprende la guardia, esquivas y golpeo fluido desde cero.</p>
+                    <div class="mt-4 flex justify-between items-center text-xs">
+                        <span class="text-slate-500"><i class="fa-solid fa-fire mr-1"></i> Alta quema calórica</span>
+                        <button onclick="openBookingModal('Boxeo Tarde')" class="text-red-500 hover:underline font-semibold">Reservar ›</button>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="schedule-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-all" data-day="martes jueves">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">Tarde • 19:30 - 20:30</span>
+                        <span class="text-xs text-slate-400">Mar - Jue</span>
+                    </div>
+                    <h4 class="text-xl font-bold font-display text-white">Kickboxing / K1</h4>
+                    <p class="text-slate-400 text-xs mt-1">Combinaciones de puño y pierna, trabajo con paos y sparrings guiados.</p>
+                    <div class="mt-4 flex justify-between items-center text-xs">
+                        <span class="text-slate-500"><i class="fa-solid fa-bolt mr-1"></i> Nivel medio/avanzado</span>
+                        <button onclick="openBookingModal('Kickboxing Tarde')" class="text-red-500 hover:underline font-semibold">Reservar ›</button>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="schedule-card bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-all" data-day="lunes miercoles viernes">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-red-500/10 text-red-400 border border-red-500/20">Noche • 20:30 - 21:30</span>
+                        <span class="text-xs text-slate-400">Lun - Mié - Vie</span>
+                    </div>
+                    <h4 class="text-xl font-bold font-display text-white">Boxeo Avanzado & Competición</h4>
+                    <p class="text-slate-400 text-xs mt-1">Estrategia en ring, táctica de combate y sparrings supervisados.</p>
+                    <div class="mt-4 flex justify-between items-center text-xs">
+                        <span class="text-slate-500"><i class="fa-solid fa-trophy mr-1"></i> Equipo de competición</span>
+                        <button onclick="openBookingModal('Boxeo Competicion')" class="text-red-500 hover:underline font-semibold">Reservar ›</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Free access info note -->
+            <div class="mt-8 bg-slate-900/80 p-4 rounded-xl border border-slate-800 text-center text-sm text-slate-400">
+                💡 <strong class="text-white">Acceso Libre a Sala de Sacos y Musculación:</strong> Disponible de 07:00 a 22:00 ininterrumpido para socios.
+            </div>
+        </div>
+    </section>
+
+    <!-- SPARTAN BOXING TIMER TOOL -->
+    <section id="timer" class="py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-y border-slate-800 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10">
+                <span class="text-red-500 font-bold uppercase tracking-wider text-xs bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">
+                    <i class="fa-solid fa-dumbbell mr-1"></i> Herramienta para Entrenamiento
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black font-display text-white mt-3 uppercase">
+                    CRONÓMETRO DE BOXEO AGOGE
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-2">
+                    Usa nuestro timer oficial de entrenamiento para tus rondas de saco, combataje o sombras.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 border-2 border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+                <!-- Status Display -->
+                <div class="text-center mb-6">
+                    <span id="timer-status" class="inline-block uppercase tracking-widest font-extrabold text-sm sm:text-lg px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                        PREPARADO
+                    </span>
+                    <div id="round-display" class="text-slate-400 font-display text-lg mt-2">
+                        Round <span id="current-round-text" class="text-white font-bold">1</span> / <span id="total-rounds-text">12</span>
+                    </div>
+                </div>
+
+                <!-- Big Digits Display -->
+                <div class="text-center my-8">
+                    <div id="time-display" class="font-display font-black text-6xl sm:text-8xl tracking-wider text-white transition-colors duration-300 font-mono">
+                        03:00
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="flex flex-wrap items-center justify-center gap-4 my-8">
+                    <button id="btn-start" onclick="toggleTimer()" class="bg-red-600 hover:bg-red-500 text-white font-black text-lg px-8 py-4 rounded-2xl shadow-lg shadow-red-600/30 flex items-center gap-3 transition-all transform active:scale-95">
+                        <i class="fa-solid fa-play text-xl" id="play-icon"></i> <span id="start-btn-text">EMPEZAR ROUND</span>
+                    </button>
+                    <button onclick="resetTimer()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold px-6 py-4 rounded-2xl border border-slate-700 transition-all">
+                        <i class="fa-solid fa-rotate-left mr-2"></i> REINICIAR
+                    </button>
+                </div>
+
+                <!-- Settings Bar -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-800 text-xs">
+                    <div>
+                        <label class="block text-slate-400 font-semibold mb-1">Duración Round</label>
+                        <select id="select-work" onchange="updateTimerSettings()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-2.5 focus:outline-none focus:border-red-500">
+                            <option value="120">2 Minutos (Amateur)</option>
+                            <option value="180" selected>3 Minutos (Profesional)</option>
+                            <option value="300">5 Minutos (MMA)</option>
+                            <option value="60">1 Minuto (Tabata)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 font-semibold mb-1">Descanso</label>
+                        <select id="select-rest" onchange="updateTimerSettings()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-2.5 focus:outline-none focus:border-red-500">
+                            <option value="30">30 Segundos</option>
+                            <option value="60" selected>60 Segundos</option>
+                            <option value="90">90 Segundos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 font-semibold mb-1">Número de Rounds</label>
+                        <select id="select-rounds" onchange="updateTimerSettings()" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-2.5 focus:outline-none focus:border-red-500">
+                            <option value="3">3 Rounds</option>
+                            <option value="5">5 Rounds</option>
+                            <option value="8">8 Rounds</option>
+                            <option value="12" selected>12 Rounds</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Sound Notice -->
+                <div class="mt-4 text-center text-[11px] text-slate-500">
+                    <i class="fa-solid fa-volume-high text-slate-400 mr-1"></i> Incluye aviso sonoro sintetizado al inicio, a los 10s finales y en los descansos.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING & TARIFFS SECTION -->
+    <section id="tarifas" class="py-20 bg-slate-900/60 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-500 font-bold uppercase tracking-wider text-xs bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Precios Trasparentes</span>
+                <h2 class="text-3xl sm:text-5xl font-black font-display text-white mt-3 uppercase">
+                    TARIFAS Y CUOTAS AGOGE
+                </h2>
+                <p class="text-slate-400 text-base sm:text-lg mt-3">
+                    Sin matrículas abusivas ni cláusulas ocultas. Elige la opción que mejor se adapte a tu rutina.
+                </p>
+
+                <!-- Billing Cycle Switcher -->
+                <div class="mt-8 inline-flex p-1.5 rounded-2xl bg-slate-800 border border-slate-700">
+                    <button id="btn-billing-monthly" onclick="setBillingCycle('monthly')" class="px-6 py-2.5 rounded-xl font-bold text-sm bg-red-600 text-white shadow-md transition-all">
+                        Mensual
+                    </button>
+                    <button id="btn-billing-quarterly" onclick="setBillingCycle('quarterly')" class="px-6 py-2.5 rounded-xl font-bold text-sm text-slate-300 hover:text-white transition-all flex items-center gap-1.5">
+                        Trimestral <span class="bg-amber-500/20 text-amber-400 text-[10px] font-extrabold px-1.5 py-0.5 rounded border border-amber-500/30">-15% dto</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Plan 1: Actividades Sueltas / Básico -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400 text-xs uppercase font-extrabold tracking-widest">Iniciación</span>
+                            <span class="bg-slate-800 text-slate-300 text-[11px] font-semibold px-2.5 py-1 rounded-full">2 Días / Semana</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-white mt-3">Cuota Estándar</h3>
+                        <p class="text-slate-400 text-xs mt-1">Ideal para compaginar con otros deportes.</p>
+
+                        <div class="my-6">
+                            <span class="text-4xl font-black font-display text-white" id="price-standard">35€</span>
+                            <span class="text-slate-400 text-xs" id="period-standard">/ mes</span>
+                        </div>
+
+                        <ul class="space-y-3 text-sm text-slate-300 my-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> 2 Clases dirigidas por semana</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Acceso a sala de sacos</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Vestuarios y duchas</li>
+                            <li class="flex items-center gap-2 text-slate-500"><i class="fa-solid fa-xmark"></i> Acceso ilimitado a todas disciplinas</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openBookingModal('Cuota Estándar')" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl transition-colors border border-slate-700">
+                        Elegir Plan
+                    </button>
+                </div>
+
+                <!-- Plan 2: Ilimitado COMBAT (RECOMENDADO) -->
+                <div class="bg-slate-900 border-2 border-red-600 rounded-3xl p-8 shadow-2xl shadow-red-600/10 relative flex flex-col justify-between transform md:-translate-y-3">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-red-600 to-amber-600 text-white text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
+                        🔥 Más Popular en Córdoba
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-red-400 text-xs uppercase font-extrabold tracking-widest">Total Agoge</span>
+                            <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-[11px] font-semibold px-2.5 py-1 rounded-full">Acceso Total</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-white mt-3">Tarifa Ilimitada Agoge</h3>
+                        <p class="text-slate-400 text-xs mt-1">Boxeo, Kickboxing & Cross Training sin restricciones.</p>
+
+                        <div class="my-6">
+                            <span class="text-5xl font-black font-display text-amber-400" id="price-unlimited">55€</span>
+                            <span class="text-slate-400 text-xs" id="period-unlimited">/ mes</span>
+                        </div>
+
+                        <ul class="space-y-3 text-sm text-slate-200 my-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> <strong>Clases dirigidas ilimitadas</strong></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Boxeo + Kickboxing + Cross Training</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Acceso libre a gimnasio 07:00-22:00</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Asesoramiento técnico continuo</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openBookingModal('Tarifa Ilimitada')" class="w-full bg-gradient-to-r from-red-600 to-amber-600 hover:opacity-95 text-white font-extrabold py-3.5 rounded-xl shadow-lg shadow-red-600/30 transition-all">
+                        ¡Inscribirme Ilimitado!
+                    </button>
+                </div>
+
+                <!-- Plan 3: Bono 10 Sesiones -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400 text-xs uppercase font-extrabold tracking-widest">Sin Cuota Fija</span>
+                            <span class="bg-slate-800 text-slate-300 text-[11px] font-semibold px-2.5 py-1 rounded-full">Flexibilidad</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-white mt-3">Bono 10 Sesiones</h3>
+                        <p class="text-slate-400 text-xs mt-1">Para personas con horarios rotativos o viajes.</p>
+
+                        <div class="my-6">
+                            <span class="text-4xl font-black font-display text-white">70€</span>
+                            <span class="text-slate-400 text-xs">/ bono 10 pases</span>
+                        </div>
+
+                        <ul class="space-y-3 text-sm text-slate-300 my-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Caducidad de 3 meses</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Válido para cualquier clase dirigida</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Reserva previa flexible por app/WhatsApp</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Comparte con un amigo si deseas</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openBookingModal('Bono 10 Sesiones')" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl transition-colors border border-slate-700">
+                        Comprar Bono
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Free Trial Promo Card -->
+            <div class="mt-12 bg-gradient-to-r from-red-950/60 via-slate-900 to-amber-950/60 border border-red-800/50 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 rounded-2xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-red-500 text-3xl shrink-0">
+                        <i class="fa-solid fa-gift"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold font-display text-white">¿Aún tienes dudas? ¡Prueba gratis sin compromiso!</h4>
+                        <p class="text-slate-300 text-sm mt-1">Te prestamos los guantes y las vendas para tu primera clase de entrenamiento.</p>
+                    </div>
+                </div>
+                <button onclick="openBookingModal('Clase Gratis Promo')" class="bg-red-600 hover:bg-red-500 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shrink-0 whitespace-nowrap">
+                    Solicitar Clase Gratuita
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FITNESS & CALORIE CALCULATOR FOR BOXING -->
+    <section id="calculadora" class="py-20 bg-[#0B0F17]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-amber-500 font-bold uppercase tracking-wider text-xs bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Calculadora Agoge</span>
+                <h2 class="text-3xl sm:text-5xl font-black font-display text-white mt-3 uppercase">
+                    ESTIMADOR DE CALORÍAS Y QUEMA
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-2">
+                    Descubre cuánta energía consumes entrenando boxeo y deportes de contacto en nuestro gimnasio.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Tu Peso Actual (kg)</label>
+                            <input type="number" id="calc-weight" value="75" min="40" max="150" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 font-semibold" oninput="calculateCalories()">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Intensidad / Actividad</label>
+                            <select id="calc-activity" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 font-semibold" onchange="calculateCalories()">
+                                <option value="7.8">Boxeo Técnico / Sacos (Moderado)</option>
+                                <option value="10.5" selected>Boxeo / Kickboxing Intenso (Clase Guiada)</option>
+                                <option value="12.0">Sparring & Competición</option>
+                                <option value="8.5">Cross Training Funcional</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Duración (Minutos)</label>
+                            <input type="range" id="calc-duration" min="30" max="120" step="15" value="60" class="w-full accent-red-600" oninput="document.getElementById('duration-val').textContent = this.value; calculateCalories()">
+                            <div class="flex justify-between text-xs text-slate-400 mt-1">
+                                <span>30 min</span>
+                                <span><strong id="duration-val" class="text-white">60</strong> minutos</span>
+                                <span>120 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Output box -->
+                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 flex flex-col justify-center items-center text-center space-y-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Estimación de Quema en Sesión</span>
+                        <div class="text-5xl font-black font-display text-amber-400" id="calc-result-calories">
+                            787 <span class="text-xl font-sans text-slate-300">kcal</span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 w-full pt-4 border-t border-slate-700/80 text-xs">
+                            <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+                                <span class="text-slate-400 block">Equivalencia</span>
+                                <strong id="calc-result-eq" class="text-white font-semibold">~2.5 Porciones de Pizza</strong>
+                            </div>
+                            <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+                                <span class="text-slate-400 block">Ritmo Cardiaco</span>
+                                <strong class="text-red-400 font-semibold">Zona Aeróbica 75-85%</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACILITIES & PHILOSOPHY -->
+    <section id="instalaciones" class="py-20 bg-slate-900/40 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="text-red-500 font-bold uppercase tracking-wider text-xs bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">Espacio de Alto Rendimiento</span>
+                    <h2 class="text-3xl sm:text-5xl font-black font-display text-white uppercase">
+                        NUESTRAS INSTALACIONES EN CÓRDOBA
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Ubicados estratégicamente en la <strong class="text-white">Avenida Arroyo del Moro, 22</strong> (Distrito Noroeste), contamos con un gimnasio amplio, perfectamente ventilado y equipado con material técnico de primeras marcas.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-red-500 font-bold shrink-0">
+                                <i class="fa-solid fa-square-ring"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Ring de Boxeo Homologado</h4>
+                                <p class="text-slate-400 text-sm">Escenario ideal para guanteos seguros, sparrings condicionados y simulación de competición.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 rounded-xl bg-amber-600/20 border border-amber-500/30 flex items-center justify-center text-amber-500 font-bold shrink-0">
+                                <i class="fa-solid fa-box text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">+15 Sacos Pesados y Peras de Velocidad</h4>
+                                <p class="text-slate-400 text-sm">Sacos de agua, cuero y banana bags para kickboxing que garantizan un entrenamiento dinámico sin esperas.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-500 font-bold shrink-0">
+                                <i class="fa-solid fa-shower"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Vestuarios Completos y Taquillas</h4>
+                                <p class="text-slate-400 text-sm">Zonas de aseo y duchas con la máxima higiene para que puedas entrenar antes o después de tu trabajo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="rounded-2xl overflow-hidden h-48 border border-slate-800">
+                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Agoge+Ring'" alt="Ring Boxeo Agoge" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden h-64 border border-slate-800">
+                            <img src="https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Sacos+Boxeo'" alt="Sacos de Boxeo Agoge" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="rounded-2xl overflow-hidden h-64 border border-slate-800">
+                            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Entrenamiento+Funcional'" alt="Entrenamiento Funcional" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden h-48 border border-slate-800">
+                            <img src="https://images.unsplash.com/photo-1509563839001-b5420716c359?auto=format&fit=crop&w=600&q=80" onerror="this.src='https://placehold.co/600x400/1e293b/ef4444?text=Kickboxing+Cordoba'" alt="Kickboxing Agoge" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS / TESTIMONIALS SECTION -->
+    <section class="py-20 bg-[#0B0F17]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-500 font-bold uppercase tracking-wider text-xs bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Comunidad Agoge</span>
+                <h2 class="text-3xl sm:text-5xl font-black font-display text-white mt-3 uppercase">
+                    LO QUE DICEN NUESTROS SOCIOS
+                </h2>
+                <div class="flex items-center justify-center gap-2 mt-3 text-amber-400 text-sm">
+                    <div class="flex">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-white font-bold">4.9 de 5 en Google Reviews</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Review 1 -->
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic">
+                            "Empecé en Agoge sin haber dado un puñetazo en mi vida. El ambiente es increíblemente acogedor y los entrenadores están pendientes de corregirte en todo momento. En tres meses he cambiado mi forma física radicalmente."
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-red-600/30 font-bold text-red-400 flex items-center justify-center">
+                            MA
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Manuel A.</h4>
+                            <span class="text-xs text-slate-500">Socio en Córdoba</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic">
+                            "Instalaciones impecables en Arroyo del Moro. La combinación de boxeo con acondicionamiento funcional engancha muchísimo. Además los horarios de mañana temprano me vienen genial para trabajar."
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-amber-600/30 font-bold text-amber-400 flex items-center justify-center">
+                            LR
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Lucía R.</h4>
+                            <span class="text-xs text-slate-500">Socia en Córdoba</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic">
+                            "Mi hijo lleva en la sección Junior desde el curso pasado y ha ganado una confianza y disciplina enorme. Gran labor humana y técnica del equipo de Agoge Boxing."
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-3 pt-4 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-emerald-600/30 font-bold text-emerald-400 flex items-center justify-center">
+                            JG
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Javier G.</h4>
+                            <span class="text-xs text-slate-500">Padre de alumno</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section class="py-16 bg-slate-900/60 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black font-display text-white uppercase">PREGUNTAS FRECUENTES</h2>
+                <p class="text-slate-400 text-sm mt-1">Todo lo que necesitas saber antes de tu primera clase en Agoge Córdoba.</p>
+            </div>
+
+            <div class="space-y-4">
+                
+                <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-white text-base">
+                        <span>¿Necesito llevar mi propio equipo para la clase de prueba?</span>
+                        <span class="transition group-open:rotate-180 text-red-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+                        No. Para tu primera clase de prueba gratuita nosotros te facilitamos los guantes y las vendas. Tan solo necesitas acudir con ropa deportiva cómoda, zapatillas deportivas de suela limpia y una botella de agua.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-white text-base">
+                        <span>¿Es obligatorio hacer combate/sparring con contacto?</span>
+                        <span class="transition group-open:rotate-180 text-red-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+                        En absoluto. El 90% de nuestros socios practican boxeo de manera recreativa y de acondicionamiento físico (sacos, manoplas, esquivas y combinaciones). El sparring libre es totalmente opcional y supervisado solo para quienes lo deseen.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-white text-base">
+                        <span>¿Existe cuota de permanencia?</span>
+                        <span class="transition group-open:rotate-180 text-red-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+                        No hay ningún compromiso de permanencia en nuestras cuotas mensuales. Puedes renovar mes a mes o elegir bonos si tienes horarios irregulares.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-900 border border-slate-800 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-white text-base">
+                        <span>¿Dónde está exactamente el gimnasio?</span>
+                        <span class="transition group-open:rotate-180 text-red-500"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+                        Estamos ubicados en Av. Arroyo del Moro, 22, en la zona Noroeste de Córdoba. Cuenta con fácil aparcamiento en las inmediaciones y rápida conexión con el centro y el Vial Norte.
+                    </p>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section id="contacto" class="py-20 bg-[#0B0F17]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-red-500 font-bold uppercase tracking-wider text-xs bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">Visítanos en Córdoba</span>
+                    <h2 class="text-3xl sm:text-5xl font-black font-display text-white uppercase">
+                        UBICACIÓN Y CONTACTO
+                    </h2>
+                    <p class="text-slate-300 text-base">
+                        Pásate a conocer el gimnasio o escríbenos por WhatsApp para resolver cualquier duda al instante.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 bg-slate-900 p-4 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-location-dot text-red-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Dirección</h4>
+                                <p class="text-slate-400 text-xs mt-0.5">Av. Arroyo del Moro, 22, Distrito Noroeste, 14011 Córdoba</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 bg-slate-900 p-4 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-phone text-emerald-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Teléfono / WhatsApp</h4>
+                                <p class="text-slate-400 text-xs mt-0.5">+34 672 55 63 01</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 bg-slate-900 p-4 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-clock text-amber-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Horario de Apertura</h4>
+                                <p class="text-slate-400 text-xs mt-0.5">Lunes a Viernes: 07:00 – 22:00 ininterrumpido</p>
+                                <p class="text-slate-500 text-[11px]">Sábados y Domingos: Cerrado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3 pt-2">
+                        <a href="https://wa.me/34672556301?text=Hola%20Agoge%20Boxing%20C%C3%B3rdoba,%20quiero%20informaci%C3%B3n%20para%20una%20clase%20de%20prueba" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl text-center text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Contactar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Map Placeholder Card -->
+                <div class="lg:col-span-7">
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 shadow-2xl overflow-hidden relative">
+                        <div class="h-96 w-full rounded-2xl overflow-hidden bg-slate-800 relative">
+                            <!-- Styled Map Frame -->
+                            <iframe 
+                                title="Ubicación Agoge Boxing Córdoba"
+                                class="w-full h-full border-0 grayscale contrast-125 opacity-90 hover:grayscale-0 transition-all duration-500" 
+                                src="https://maps.google.com/maps?q=Av.+Arroyo+del+Moro,+22,+14011+C%C3%B3rdoba&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center px-2">
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-compass mr-1 text-red-500"></i> Arroyo del Moro, Córdoba</span>
+                            <a href="https://maps.google.com/?cid=10288246657880292848" target="_blank" class="text-xs font-bold text-red-400 hover:underline flex items-center gap-1">
+                                Abrir en Google Maps <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-red-600 rounded-xl flex items-center justify-center text-white font-black text-xl">
+                        A
+                    </div>
+                    <div>
+                        <span class="text-lg font-black font-display text-white tracking-wider block">AGOGE BOXING CÓRDOBA</span>
+                        <span class="text-xs text-slate-500">Av. Arroyo del Moro, 22 • 14011 Córdoba</span>
+                    </div>
+                </div>
+
+                <div class="flex space-x-6 text-slate-400 text-lg">
+                    <a href="https://instagram.com" target="_blank" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://wa.me/34672556301" target="_blank" class="hover:text-emerald-500 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-600 gap-4">
+                <p>© <span id="year-span">2026</span> Agoge Boxing Córdoba. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:underline">Aviso Legal</a>
+                    <a href="#" class="hover:underline">Política de Privacidad</a>
+                    <a href="#" class="hover:underline">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL RESERVA CLASE DE PRUEBA -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative bg-slate-900 border border-slate-800 w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl">
+            
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="mb-6">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-wider bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                    Reserva Gratuita
+                </span>
+                <h3 class="text-2xl font-black font-display text-white mt-2">RESERVA TU CLASE DE PRUEBA</h3>
+                <p class="text-xs text-slate-400 mt-1">Sin compromiso. Te confirmamos plaza en menos de 2 horas por WhatsApp.</p>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="modal-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Nombre Completo *</label>
+                    <input type="text" required placeholder="Ej. Juan Pérez" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-red-500 text-sm">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Teléfono / WhatsApp *</label>
+                        <input type="tel" required placeholder="600 000 000" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-red-500 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Disciplina *</label>
+                        <select id="modal-discipline" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 text-sm">
+                            <option value="Boxeo Recreativo">Boxeo Recreativo</option>
+                            <option value="Kickboxing">Kickboxing / K1</option>
+                            <option value="Cross Training">Cross Training</option>
+                            <option value="Defensa Personal">Defensa Personal</option>
+                            <option value="Boxeo Junior">Boxeo Junior</option>
+                            <option value="Entrenamiento Personal">Entrenamiento Personal</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Horario Preferido</label>
+                    <select class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 text-sm">
+                        <option value="Mañana (07:30 - 11:30)">Mañanas (07:30 - 11:30)</option>
+                        <option value="Tarde (17:30 - 20:00)">Tardes (17:30 - 20:00)</option>
+                        <option value="Noche (20:00 - 22:00)">Noche (20:00 - 22:00)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-1">¿Experiencia previa en deportes de contacto?</label>
+                    <div class="flex gap-4 text-xs text-slate-300 pt-1">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="exp" value="Ninguna" checked class="accent-red-600"> Ninguna (Principiante)
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="exp" value="Algo" class="accent-red-600"> Algo de experiencia
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-amber-600 hover:opacity-95 text-white font-extrabold py-3.5 rounded-xl shadow-lg shadow-red-600/30 text-base mt-2 transition-all">
+                     Confirmar Reserva Gratuita
+                </button>
+            </form>
+
+            <!-- Success State -->
+            <div id="modal-success" class="hidden text-center py-8 space-y-4">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center text-3xl mx-auto animate-bounce">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h4 class="text-2xl font-bold font-display text-white">¡RESERVA RECIBIDA!</h4>
+                <p class="text-sm text-slate-300">
+                    Hemos registrado tu solicitud. Te contactaremos por WhatsApp al número proporcionado para confirmar el día exacto de tu sesión.
+                </p>
+                <button onclick="closeBookingModal()" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 px-6 rounded-xl text-sm border border-slate-700">
+                    Cerrar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // -------------------------------------------------------------
+        // MOBILE MENU TOGGLE
+        // -------------------------------------------------------------
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = "fa-solid fa-bars text-2xl";
+            } else {
+                icon.className = "fa-solid fa-xmark text-2xl";
+            }
+        }
+
+        // -------------------------------------------------------------
+        // BOOKING MODAL
+        // -------------------------------------------------------------
+        function openBookingModal(disciplineName) {
+            const modal = document.getElementById('booking-modal');
+            const selectDiscipline = document.getElementById('modal-discipline');
+            const form = document.getElementById('modal-form');
+            const success = document.getElementById('modal-success');
+
+            if (disciplineName && selectDiscipline) {
+                // Try to select if option exists
+                for (let opt of selectDiscipline.options) {
+                    if (opt.value.toLowerCase().includes(disciplineName.toLowerCase())) {
+                        opt.selected = true;
+                        break;
+                    }
+                }
+            }
+
+            form.classList.remove('hidden');
+            success.classList.add('hidden');
+            modal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('modal-form').classList.add('hidden');
+            document.getElementById('modal-success').classList.remove('hidden');
+        }
+
+        // -------------------------------------------------------------
+        // SCHEDULE FILTERING
+        // -------------------------------------------------------------
+        function filterSchedule(day) {
+            const cards = document.querySelectorAll('.schedule-card');
+            const tabs = document.querySelectorAll('#day-tabs button');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('active-tab', 'bg-red-600', 'text-white', 'border-red-600');
+                tab.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+            });
+
+            // Highlight clicked button
+            event.currentTarget.classList.add('active-tab', 'bg-red-600', 'text-white', 'border-red-600');
+            event.currentTarget.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+
+            cards.forEach(card => {
+                const days = card.getAttribute('data-day');
+                if (day === 'todos' || days.includes(day)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // -------------------------------------------------------------
+        // BILLING TOGGLE (MONTHLY vs QUARTERLY)
+        // -------------------------------------------------------------
+        function setBillingCycle(type) {
+            const btnMonthly = document.getElementById('btn-billing-monthly');
+            const btnQuarterly = document.getElementById('btn-billing-quarterly');
+            const priceStandard = document.getElementById('price-standard');
+            const priceUnlimited = document.getElementById('price-unlimited');
+            const periodStandard = document.getElementById('period-standard');
+            const periodUnlimited = document.getElementById('period-unlimited');
+
+            if (type === 'quarterly') {
+                btnQuarterly.classList.add('bg-red-600', 'text-white');
+                btnQuarterly.classList.remove('text-slate-300');
+                btnMonthly.classList.remove('bg-red-600', 'text-white');
+                btnMonthly.classList.add('text-slate-300');
+
+                priceStandard.textContent = '30€';
+                priceUnlimited.textContent = '47€';
+                periodStandard.textContent = '/ mes (pago trimestral)';
+                periodUnlimited.textContent = '/ mes (pago trimestral)';
+            } else {
+                btnMonthly.classList.add('bg-red-600', 'text-white');
+                btnMonthly.classList.remove('text-slate-300');
+                btnQuarterly.classList.remove('bg-red-600', 'text-white');
+                btnQuarterly.classList.add('text-slate-300');
+
+                priceStandard.textContent = '35€';
+                priceUnlimited.textContent = '55€';
+                periodStandard.textContent = '/ mes';
+                periodUnlimited.textContent = '/ mes';
+            }
+        }
+
+        // -------------------------------------------------------------
+        // CALORIE ESTIMATOR CALCULATOR
+        // -------------------------------------------------------------
+        function calculateCalories() {
+            const weight = parseFloat(document.getElementById('calc-weight').value) || 70;
+            const met = parseFloat(document.getElementById('calc-activity').value) || 10.5;
+            const durationMin = parseFloat(document.getElementById('calc-duration').value) || 60;
+
+            // MET formula: Calories = MET * weight (kg) * time (hours)
+            const calories = Math.round(met * weight * (durationMin / 60));
+            document.getElementById('calc-result-calories').innerHTML = `${calories} <span class="text-xl font-sans text-slate-300">kcal</span>`;
+
+            // Slice of pizza estimate ~300 kcal
+            const pizzaSlices = (calories / 300).toFixed(1);
+            document.getElementById('calc-result-eq').textContent = `~${pizzaSlices} Porciones de Pizza`;
+        }
+
+        // -------------------------------------------------------------
+        // BOXING INTERVAL TIMER LOGIC (WEB AUDIO API)
+        // -------------------------------------------------------------
+        let timerInterval = null;
+        let isRunning = false;
+        let isWorkPhase = true;
+        let currentRound = 1;
+        let totalRounds = 12;
+        let workDuration = 180;
+        let restDuration = 60;
+        let timeLeft = 180;
+
+        // Web Audio Synthesizer Beep Generator
+        let audioCtx = null;
+
+        function playBeep(freq = 600, duration = 0.2, type = 'sine') {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                console.log("Audio not allowed yet", e);
+            }
+        }
+
+        function playGong() {
+            // Triple beep sounding like a boxing bell
+            playBeep(800, 0.3, 'triangle');
+            setTimeout(() => playBeep(800, 0.3, 'triangle'), 150);
+            setTimeout(() => playBeep(800, 0.4, 'triangle'), 300);
+        }
+
+        function updateTimerSettings() {
+            workDuration = parseInt(document.getElementById('select-work').value);
+            restDuration = parseInt(document.getElementById('select-rest').value);
+            totalRounds = parseInt(document.getElementById('select-rounds').value);
+
+            document.getElementById('total-rounds-text').textContent = totalRounds;
+
+            if (!isRunning) {
+                resetTimer();
+            }
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateDisplay() {
+            const timeDisp = document.getElementById('time-display');
+            const statusDisp = document.getElementById('timer-status');
+            const roundText = document.getElementById('current-round-text');
+
+            timeDisp.textContent = formatTime(timeLeft);
+            roundText.textContent = currentRound;
+
+            if (isWorkPhase) {
+                statusDisp.textContent = "FIGHT! - ROUND EN CURSO";
+                statusDisp.className = "inline-block uppercase tracking-widest font-extrabold text-xs sm:text-sm px-4 py-1.5 rounded-full bg-red-600/30 text-red-400 border border-red-500/40 animate-pulse";
+                timeDisp.className = "font-display font-black text-6xl sm:text-8xl tracking-wider text-red-500 transition-colors duration-300 font-mono";
+            } else {
+                statusDisp.textContent = "DESCANSO - RECUPERA";
+                statusDisp.className = "inline-block uppercase tracking-widest font-extrabold text-xs sm:text-sm px-4 py-1.5 rounded-full bg-emerald-600/30 text-emerald-400 border border-emerald-500/40";
+                timeDisp.className = "font-display font-black text-6xl sm:text-8xl tracking-wider text-emerald-400 transition-colors duration-300 font-mono";
+            }
+        }
+
+        function toggleTimer() {
+            const btnText = document.getElementById('start-btn-text');
+            const playIcon = document.getElementById('play-icon');
+
+            if (isRunning) {
+                // Pause
+                clearInterval(timerInterval);
+                isRunning = false;
+                btnText.textContent = "CONTINUAR";
+                playIcon.className = "fa-solid fa-play text-xl";
+            } else {
+                // Start
+                isRunning = true;
+                btnText.textContent = "PAUSAR";
+                playIcon.className = "fa-solid fa-pause text-xl";
+                playGong();
+
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+
+                    // 10 second warning beep
+                    if (timeLeft === 10) {
+                        playBeep(1000, 0.1);
+                        setTimeout(() => playBeep(1000, 0.1), 200);
+                    }
+
+                    if (timeLeft <= 0) {
+                        if (isWorkPhase) {
+                            // Switch to Rest
+                            playGong();
+                            if (currentRound >= totalRounds) {
+                                // Finished all rounds
+                                clearInterval(timerInterval);
+                                isRunning = false;
+                                document.getElementById('timer-status').textContent = "¡ENTRENAMIENTO COMPLETADO!";
+                                document.getElementById('timer-status').className = "inline-block uppercase tracking-widest font-extrabold text-xs sm:text-sm px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40";
+                                btnText.textContent = "EMPEZAR NUEVO";
+                                playIcon.className = "fa-solid fa-play text-xl";
+                                return;
+                            } else {
+                                isWorkPhase = false;
+                                timeLeft = restDuration;
+                            }
+                        } else {
+                            // Switch to Work Next Round
+                            playGong();
+                            isWorkPhase = true;
+                            currentRound++;
+                            timeLeft = workDuration;
+                        }
+                    }
+
+                    updateDisplay();
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            isRunning = false;
+            isWorkPhase = true;
+            currentRound = 1;
+            timeLeft = workDuration;
+
+            document.getElementById('start-btn-text').textContent = "EMPEZAR ROUND";
+            document.getElementById('play-icon').className = "fa-solid fa-play text-xl";
+
+            const statusDisp = document.getElementById('timer-status');
+            statusDisp.textContent = "PREPARADO";
+            statusDisp.className = "inline-block uppercase tracking-widest font-extrabold text-xs sm:text-sm px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700";
+
+            document.getElementById('time-display').className = "font-display font-black text-6xl sm:text-8xl tracking-wider text-white transition-colors duration-300 font-mono";
+            document.getElementById('time-display').textContent = formatTime(timeLeft);
+            document.getElementById('current-round-text').textContent = currentRound;
+        }
+
+        // Initialize defaults
+        window.addEventListener('DOMContentLoaded', () => {
+            calculateCalories();
+            updateTimerSettings();
+        });
+    </script>
+</body>
+</html>
